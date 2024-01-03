@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./proto";
+
+message Postcli{
+    string Host=1;
+    string GPUIndex=2;
+    // string File_Index=3;
+}
+
+message Plot{
+    string NodeId=1;
+	string CommitmentAtxId=2;
+	string DataDir=3;
+	string FileIndex=4;
+	uint32 NumUnits=5;
+    uint64 MaxFileSize=6;
+	uint64 LabelsPerUnit=7;
+	uint32 TotalFile=8;
+}
+
+
+message Workers{
+    repeated Worker worker=1;
+    message Worker{
+        string Host=2;
+        message Providers{
+            string Provider=3;
+            string File_Index=4;
+            string Duration=5;
+        }
+        repeated Providers providers=5;
+    }
+}
+
+
+message Jump2File{
+    uint32 File_Index=1;
+}
+
+message StatusReq{
+}
+
+message StatusResp{
+    bool success = 1;
+}
+
+
+
+service Spacemesher{
+    rpc GetPlot(Postcli) returns (Plot){}
+    // rpc Plotting(Postcli) returns (StatusResp){}
+    rpc GetWorkers(StatusReq) returns (Workers){}
+    rpc Jump(Jump2File) returns (StatusResp){}
+    rpc CurrentTask(StatusReq) returns (Plot){}
+
+}
+
