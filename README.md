@@ -1,4 +1,4 @@
-# spacemesher
+# Spacemesher
 
 CLI tool for PoST initialization
 
