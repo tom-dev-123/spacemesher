@@ -88,8 +88,12 @@ func (c *Client) Task_Start() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		_, err = os.Stat(plot.DataDir)
-		for os.IsNotExist(err) { log.Print(err); time.Sleep(time.Second * 5)}
+		_, err = os.Stat("." + plot.DataDir)
+		for os.IsNotExist(err) { 
+			log.Print(err)
+			_, err = os.Stat("." + plot.DataDir)
+			time.Sleep(time.Second * 5)
+		}
 		
 		task := Task{
 			Command: exec.Command(
