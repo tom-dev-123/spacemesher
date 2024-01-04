@@ -51,5 +51,6 @@ Help Options:
 ```
 
 ## NOTICE
-1. If the `postcli` binary file is exported on the env on the client machines, you could use the `--bin` tag by default.
-2. It should be noted that the `post_data` directory must be pre mounted on the client machines, Recommend using Ansible or Fabric3.
+1. The `postdata_metadata.json` file you need to generate with `postcli` first.
+2. If the `postcli` binary file is exported on the env on the client machines, you could use the `--bin` tag by default.
+3. It should be noted that the `post_data` directory must be pre mounted on the client machines, Recommend using Ansible or Fabric3.
