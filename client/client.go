@@ -29,7 +29,7 @@ var tag Tags
 
 type Tags struct {
 	Address string `long:"address" default:"0.0.0.0:8081" description:"Address for listening"`
-	Provider uint `short:"p" long:"provider" description:"Binging gpu"`
+	Provider uint `short:"p" long:"provider" description:"Binding gpu"`
 	Postcli string `long:"bin" default:"postcli" description:"the path of postcli binary"`
 }
 

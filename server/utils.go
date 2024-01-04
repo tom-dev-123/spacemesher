@@ -38,7 +38,7 @@ func NewPlot(post_data_dir string) error {
 		NumUnits: postdata.NumUnits,
 		LabelsPerUnit: postdata.LabelsPerUnit,
 		MaxFileSize: postdata.MaxFileSize,
-		TotalFile: postdata.NumUnits * 16,
+		TotalFile: uint32(uint64(postdata.NumUnits) * 64 * 1024 * 1024 * 1024 / postdata.MaxFileSize),
 	}
 	log.Println(PostData)
 	return nil
