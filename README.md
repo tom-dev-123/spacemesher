@@ -5,8 +5,8 @@ CLI tool for PoST initialization
 ## Build
 ```bash
 cd spacemesher
-go build -o "./bin/server ./server/*"
-go build -o "./bin/client ./client/*"
+go build -o "./bin/server" ./server/*
+go build -o "./bin/client" ./client/*
 ```
 
 ## Usage
