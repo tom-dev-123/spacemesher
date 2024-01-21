@@ -4,12 +4,6 @@ import (
 	"log"
 	"net"
 
-	// "net/http"
-	// "net/rpc"
-	// "os"
-	// "os/signal"
-	// "syscall"
-
 	pb "spacemesher/proto"
 
 	"github.com/jessevdk/go-flags"

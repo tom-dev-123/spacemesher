@@ -28,9 +28,9 @@ type Task struct {
 var tag Tags
 
 type Tags struct {
-	Address string `long:"address" default:"0.0.0.0:8081" description:"Address for listening"`
-	Provider uint `short:"p" long:"provider" description:"Binding gpu"`
-	Postcli string `long:"bin" default:"postcli" description:"the path of postcli binary"`
+	Address string `short:"a" long:"address" default:"0.0.0.0:8081" description:"Address to connect"`
+	Provider uint `short:"p" long:"provider" default:"0" description:"Binding gpu"`
+	Postcli string `short:"b" long:"bin" default:"postcli" description:"The binary path"`
 }
 
 func New() *Client {
@@ -88,10 +88,10 @@ func (c *Client) Task_Start() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		_, err = os.Stat("." + plot.DataDir)
+		_, err = os.Stat(plot.DataDir)
 		for os.IsNotExist(err) { 
 			log.Print(err)
-			_, err = os.Stat("." + plot.DataDir)
+			_, err = os.Stat(plot.DataDir)
 			time.Sleep(time.Second * 5)
 		}
 		
@@ -120,10 +120,6 @@ func (c *Client) Task_Start() {
 		}
 		log.Println(task.Command.Args)
 		
-		// _, err = c.Plotting(&plotting)
-		// if err != nil {
-		// 	log.Fatal(err)
-		// }
 		err = task.Command.Start()
 		task.Command.Wait()
 	}

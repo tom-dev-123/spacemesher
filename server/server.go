@@ -65,20 +65,6 @@ func (s *Server) GetPlot(ctx context.Context, postcli *pb.Postcli) (*pb.Plot, er
 }
 
 
-// func (s *Server) Plotting(ctx context.Context, postcli *pb.Postcli) (*pb.StatusResp, error){
-	
-// 	if postcliInfo[postcli.Host] == nil {
-// 		postcliInfo[postcli.Host] = make(map[string]Task)
-// 	}
-
-// 	task := Task{ File_index: PostData.FileIndex, Duration: time.Now()}
-// 	postcliInfo[postcli.Host][postcli.GPUIndex] = task
-
-// 	log.Printf("Host: %s GPU: %s\t FileIndex: %s", postcli.Host, postcli.GPUIndex, PostData.FileIndex)
-
-// 	return &pb.StatusResp{ Success: true }, nil
-// }
-
 func (s *Server) GetWorkers(ctx context.Context, _ *pb.StatusReq) (*pb.Workers, error) {
 	var workers pb.Workers
 	
