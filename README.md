@@ -51,6 +51,8 @@ Help Options:
 ```
 
 ## Third party tools to get infos
+
+tool link: https://github.com/fullstorydev/grpcurl/releases
 ```bash
 # get worker's jobs
 grpcurl -plaintext localhost:8088 proto.Spacemesher.GetWorkers
