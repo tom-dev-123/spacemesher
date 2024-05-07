@@ -50,6 +50,17 @@ Help Options:
 ./bin/client --provider 0 --bin /path/to/postcli --address 0.0.0.0:8088
 ```
 
+## Third party tools to get infos
+```bash
+# get worker's jobs
+grpcurl -plaintext localhost:8088 proto.Spacemesher.GetWorkers
+# get current task process
+grpcurl -plaintext localhost:8088 proto.Spacemesher.CurrentTask
+# set current file_index (e.g: set file_index to 100)
+grpcurl -d '{"FileIndex": 100}' -plaintext localhost:8088 proto.Spacemesher.Jump
+```
+
+
 ## NOTICE
 1. The `postdata_metadata.json` file you need to generate with `postcli` first.
 2. If the `postcli` binary file is exported on the env on the client machines, you could use the `--bin` tag by default.
